@@ -7,7 +7,7 @@ elif [[ $platform == 'Darwin' ]]; then
 fi
 
 
-alias aliases='vim ~/.dotfiles/zsh/aliases'
+alias aliases='vim ~/dotfiles/zsh/aliases'
 alias bi='bundle install'
 alias bu='bundle update'
 alias bf='cd ~/blackfin'
@@ -25,8 +25,8 @@ alias gpp='git push origin production && git push prod production:master'
 alias gpm='git push origin master'
 alias gpu='git push origin ui_cleanup'
 alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp *'
-alias so='source ~/.dotfiles/zsh/aliases'
+alias so='source ~/dotfiles/zsh/aliases'
 alias z='zeus'
 alias zc='zeus console'
 alias zs='zeus server'
-alias vc='vim ~/.vimrc'
+alias vc='vim ~/dotfiles/vimrc'
