@@ -1,0 +1,32 @@
+# Handle the fact that this file will be used with multiple OSs
+platform=`uname`
+if [[ $platform == 'Linux' ]]; then
+  alias a='ls -lrth --color'
+elif [[ $platform == 'Darwin' ]]; then
+  alias a='ls -lrthG'
+fi
+
+
+alias aliases='vim ~/.dotfiles/zsh/aliases'
+alias bi='bundle install'
+alias bu='bundle update'
+alias bf='cd ~/blackfin'
+alias bwk='cd ~/wordpress/bootstrappedwithkids'
+alias c='cd ~/rails/crelister2'
+alias ctags="`brew --prefix`/bin/ctags"
+alias gad='git add .'
+alias gcm="git commit -m"
+alias gb='git co -b'
+alias gbl='git branch'
+alias gdb='git branch -D'
+alias gpush='git push origin master && git push prod master'
+alias gps='git push origin staging && git push staging staging:master'
+alias gpp='git push origin production && git push prod production:master'
+alias gpm='git push origin master'
+alias gpu='git push origin ui_cleanup'
+alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp *'
+alias so='source ~/.dotfiles/zsh/aliases'
+alias z='zeus'
+alias zc='zeus console'
+alias zs='zeus server'
+alias vc='vim ~/.vimrc'
