@@ -30,3 +30,5 @@ alias z='zeus'
 alias zc='zeus console'
 alias zs='zeus server'
 alias vc='vim ~/dotfiles/vimrc'
+alias lamp="cp ~/projects/lamp/'install.sh' . && cp ~/projects/lamp/Vagrantfile . && vagrant up"
+alias mg='cd ~/blackfin/strand/metrigraphics'
