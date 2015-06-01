@@ -8,27 +8,31 @@ fi
 
 
 alias aliases='vim ~/dotfiles/zsh/aliases'
-alias bi='bundle install'
-alias bu='bundle update'
-alias bf='cd ~/blackfin'
-alias bwk='cd ~/wordpress/bootstrappedwithkids'
-alias c='cd ~/rails/crelister2'
+alias reload='source ~/dotfiles/zshrc'
+alias so='source ~/dotfiles/zsh/aliases'
 alias ctags="`brew --prefix`/bin/ctags"
 alias gad='git add .'
 alias gcm="git commit -m"
-alias gb='git co -b'
-alias gbl='git branch'
-alias gdb='git branch -D'
-alias gpush='git push origin master && git push prod master'
-alias gps='git push origin staging && git push staging staging:master'
-alias gpp='git push origin production && git push prod production:master'
 alias gpm='git push origin master'
-alias gpu='git push origin ui_cleanup'
 alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp *'
-alias so='source ~/dotfiles/zsh/aliases'
-alias z='zeus'
-alias zc='zeus console'
-alias zs='zeus server'
-alias vc='vim ~/dotfiles/vimrc'
 alias lamp="cp ~/projects/lamp/'install.sh' . && cp ~/projects/lamp/Vagrantfile . && vagrant up"
-alias mg='cd ~/blackfin/strand/metrigraphics'
+alias ma="git checkout master"
+alias st="git checkout staging"
+alias gstat='git status'
+alias bf='cd ~/blackfin'
+alias vup='vagrant up'
+
+# Project aliases
+# alias mg='cd ~/blackfin/strand/metrigraphics'
+alias m4='cd ~/blackfin/protobrand/app/protobrand-m4' 
+alias bmf='cd ~/blackfin/strand/bostonmedflight/cms'
+alias ora='cd ~/blackfin/pasquini/ora' 
+alias hs='cd ~/blackfin/homestead' 
+alias hpp='cd ~/blackfin/hpp/hpp'
+alias ow='cd ~/blackfin/mechanica/OpenWork/OpenWork'
+alias hssh='ssh vagrant@192.168.25.24 -p 22'
+alias ose='cd /Users/mac/blackfin/OSE/ose'
+alias ml='cd /Users/mac/blackfin/strand/microlambda'
+alias ms='cd /Users/mac/blackfin/mitchstuart/html/mitchstuart'
+alias scand='cd /Users/mac/blackfin/scandia/www'
+alias shawmut='cd /Users/mac/blackfin/pasquini/Shawmut'

@@ -12,22 +12,22 @@ colorscheme morning
 Bundle 'gmarik/vundle'
 
 " My bundles
-Bundle 'ervandew/supertab'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-cucumber'
+"Bundle 'ervandew/supertab'
+"Bundle 'kchmck/vim-coffee-script'
+"Bundle 'tpope/vim-cucumber'
 "Bundle 'tpope/vim-fugitive'
+"Bundle 'tpope/vim-rails'
+"Bundle 'tpope/vim-unimpaired'
+"Bundle 'vim-ruby/vim-ruby'
+"Bundle 'scrooloose/nerdtree'
+Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-markdown'
-"Bundle 'tpope/vim-unimpaired'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'wincent/Command-T'
-Bundle 'scrooloose/nerdtree'
+"Bundle 'wincent/Command-T'
 Bundle 'jgdavey/tslime.vim'
-Bundle 'jgdavey/vim-turbux'
-
+"Bundle 'jgdavey/vim-turbux'
+Bundle 'joonty/vdebug.git'
 " ================
 " Ruby stuff
 " ================
@@ -59,6 +59,7 @@ map <Leader>s :e ~/.vimrc<CR>
 "map <Leader>o :call RunCurrentLineInTest()<CR>
 map <Leader>f :CommandT<CR>
 map <C-h> :nohl<cr>
+map <Leader>t :call Send_to_Tmux("vendor/bin/codecept run\n")<cr>
 
 set nocompatible
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -87,6 +88,7 @@ set gdefault " assume the /g flag on :s substitutions to replace all matches in 
 set autoindent " always set autoindenting on
 set bg=light
 set clipboard=unnamed
+set tabstop=4
 
 " Set the tag file search order
 set tags=./tags;
@@ -105,50 +107,56 @@ set nofoldenable " Say no to code folding...
 command! Q q " Bind :Q to :q
 command! Qall qall 
 
+let g:vdebug_options = {
+      \ 'path_maps': {"/var/www/protobrand-m4/": "/Users/mac/blackfin/protobrand/app/protobrand-m4/"},
+      \ 'server': '0.0.0.0'
+      \}
+
 " When loading text files, wrap them and don't split up words.
 au BufNewFile,BufRead *.txt setlocal wrap 
 au BufNewFile,BufRead *.txt setlocal lbr
 
-function! RunCurrentTest()
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
-  if in_test_file
-    call SetTestFile()
+" function! RunCurrentTest()
+"   let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
+"   if in_test_file
+"     call SetTestFile()
+"
+"     if match(expand('%'), '\.feature$') != -1
+"       call SetTestRunner("!cucumber")
+"       exec g:bjo_test_runner g:bjo_test_file
+"     elseif match(expand('%'), '_spec\.rb$') != -1
+"       call SetTestRunner("!bin/rspec")
+"       exec g:bjo_test_runner g:bjo_test_file
+"     else
+"       call SetTestRunner("!ruby -Itest")
+"       exec g:bjo_test_runner g:bjo_test_file
+"     endif
+"   else
+"     exec g:bjo_test_runner g:bjo_test_file
+"   endif
+" endfunction
+"
+" function! SetTestRunner(runner)
+"   let g:bjo_test_runner=a:runner
+" endfunction
+"
+" function! RunCurrentLineInTest()
+"   let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
+"   if in_test_file
+"     call SetTestFileWithLine()
+"   end
+"   exec "!bin/rspec" g:bjo_test_file . ":" . g:bjo_test_file_line
+" endfunction
+"
+" function! SetTestFile()
+"   let g:bjo_test_file=@%
+" endfunction
+"
+" function! SetTestFileWithLine()
+"   let g:bjo_test_file=@%
+"   let g:bjo_test_file_line=line(".")
+" endfunction
 
-    if match(expand('%'), '\.feature$') != -1
-      call SetTestRunner("!cucumber")
-      exec g:bjo_test_runner g:bjo_test_file
-    elseif match(expand('%'), '_spec\.rb$') != -1
-      call SetTestRunner("!bin/rspec")
-      exec g:bjo_test_runner g:bjo_test_file
-    else
-      call SetTestRunner("!ruby -Itest")
-      exec g:bjo_test_runner g:bjo_test_file
-    endif
-  else
-    exec g:bjo_test_runner g:bjo_test_file
-  endif
-endfunction
-
-function! SetTestRunner(runner)
-  let g:bjo_test_runner=a:runner
-endfunction
-
-function! RunCurrentLineInTest()
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
-  if in_test_file
-    call SetTestFileWithLine()
-  end
-  exec "!bin/rspec" g:bjo_test_file . ":" . g:bjo_test_file_line
-endfunction
-
-function! SetTestFile()
-  let g:bjo_test_file=@%
-endfunction
-
-function! SetTestFileWithLine()
-  let g:bjo_test_file=@%
-  let g:bjo_test_file_line=line(".")
-endfunction
 " ========================================================================
 " End of things set by me.
 " ========================================================================
