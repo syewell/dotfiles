@@ -13,26 +13,16 @@ alias so='source ~/dotfiles/zsh/aliases'
 alias ctags="`brew --prefix`/bin/ctags"
 alias gad='git add .'
 alias gcm="git commit -m"
-alias gpm='git push origin master'
 alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp *'
 alias lamp="cp ~/projects/lamp/'install.sh' . && cp ~/projects/lamp/Vagrantfile . && vagrant up"
-alias ma="git checkout master"
-alias st="git checkout staging"
 alias gstat='git status'
 alias bf='cd ~/blackfin'
 alias vup='vagrant up'
 
 # Project aliases
 # alias mg='cd ~/blackfin/strand/metrigraphics'
-alias m4='cd ~/blackfin/protobrand/m4' 
 alias bmf='cd ~/blackfin/strand/bostonmedflight/cms'
-alias ora='cd ~/blackfin/pasquini/ora' 
-alias hs='cd ~/blackfin/homestead' 
-alias hpp='cd ~/blackfin/hpp/hpp'
-alias ow='cd ~/blackfin/mechanica/OpenWork/OpenWork'
-alias hssh='ssh vagrant@192.168.25.24 -p 22'
-alias ose='cd ~/blackfin/OSE/ose'
-alias ml='cd ~/blackfin/strand/microlambda'
-alias ms='cd ~/blackfin/mitchstuart/html/mitchstuart'
-alias scand='cd ~/blackfin/scandia/www'
-alias shawmut='cd ~/blackfin/pasquini/Shawmut'
+alias hs='cd ~/.homestead/' 
+alias hssh='homestead ssh'
+alias pbs='cd ~/purposebuilt'
+alias reid='cd ~/purposebuilt/reid'

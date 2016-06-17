@@ -60,4 +60,7 @@ zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa bf_team_key bf_key
 export PATH=/usr/local/bin:$PATH
 export PATH=~/bin:$PATH
+export PATH=/usr/local/php5/bin:$PATH
 
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
