@@ -51,16 +51,17 @@ source $HOME/dotfiles/zsh/aliases
 source $HOME/credentials/ids.sh
 
 #improve ruby performance
-export RUBY_GC_MALLOC_LIMIT=90000000
-export RUBY_FREE_MIN=200000
+#export RUBY_GC_MALLOC_LIMIT=90000000
+#export RUBY_FREE_MIN=200000
 
 export PGHOST=localhost
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa bf_team_key bf_key
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$PATH:~/.composer
 export PATH=~/bin:$PATH
-export PATH=/usr/local/php5/bin:$PATH
+export PATH=~/Library/Python/3.6/bin:$PATH
+export EDITOR='vim'
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

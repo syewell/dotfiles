@@ -28,6 +28,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'jgdavey/tslime.vim'
 "Bundle 'jgdavey/vim-turbux'
 Bundle 'joonty/vdebug.git'
+Bundle 'posva/vim-vue'
 " ================
 " Ruby stuff
 " ================
@@ -38,7 +39,7 @@ augroup myfiletypes
   " Clear old autocmds in group
   autocmd!
   " autoindent with two spaces, always expand tabs
-  autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+  autocmd FileType ruby,eruby,yaml,php set ai sw=2 sts=2 et
 augroup END
 " ================
 
@@ -105,6 +106,7 @@ set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
 set nofoldenable " Say no to code folding...
 
 command! Q q " Bind :Q to :q
+command! W w " Bind :W to :w
 command! Qall qall 
 
 let g:vdebug_options = {

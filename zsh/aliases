@@ -6,6 +6,16 @@ elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
 fi
 
+function homestead() {
+    ( cd ~/Homestead && vagrant $* )
+}
+
+function chpwd() {
+    emulate -L zsh
+    ls -al
+}
+
+chpwd_functions=(${chpwd_functions[@]} "list_all")
 
 alias aliases='vim ~/dotfiles/zsh/aliases'
 alias reload='source ~/dotfiles/zshrc'
@@ -14,15 +24,24 @@ alias ctags="`brew --prefix`/bin/ctags"
 alias gad='git add .'
 alias gcm="git commit -m"
 alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp *'
-alias lamp="cp ~/projects/lamp/'install.sh' . && cp ~/projects/lamp/Vagrantfile . && vagrant up"
+# alias lamp="cp ~/projects/lamp/'install.sh' . && cp ~/projects/lamp/Vagrantfile . && vagrant up"
 alias gstat='git status'
 alias bf='cd ~/blackfin'
 alias vup='vagrant up'
+alias hssh='homestead ssh'
+alias hup='homestead up'
+alias hhalt='homestead halt'
+alias top='top -o cpu'
+alias tf='tail -f storage/logs/laravel.log'
+alias ts='tail -f storage/logs/system.log'
 
 # Project aliases
-# alias mg='cd ~/blackfin/strand/metrigraphics'
-alias bmf='cd ~/blackfin/strand/bostonmedflight/cms'
 alias hs='cd ~/.homestead/' 
-alias hssh='homestead ssh'
+alias lic='tmuxinator licensing'
 alias pbs='cd ~/purposebuilt'
-alias reid='cd ~/purposebuilt/reid'
+alias nvg='cd ~/purposebuilt/nvg'
+alias ol='cd ~/purposebuilt/ol/'
+alias rr='cd ~/purposebuilt/rr/rotatingroom'
+alias walsh='cd ~/purposebuilt/walsh'
+alias lss='cd ~/purposebuilt/lss/'
+alias cure='cd ~/purposebuilt/curaleaf/'
